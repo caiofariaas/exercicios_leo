@@ -1,12 +1,32 @@
 package Exercicio01;
 
+import java.util.ArrayList;
+
 public class Calculo {
 
-    public double mediaComum(double num1, double num2){
-        return (num1 + num2) / 2;
+    public static double mediaComum(ArrayList<Double> notas){
+
+        double total = 0;
+
+        for (Double nota : notas) {
+            total += nota;
+        }
+
+        return total / notas.size();
     }
 
-    public double mediaPonderada(double num1, double num2, double peso1, double peso2){
-        return (peso1 * num1 + peso2 * num2) / peso1 + peso2;
+
+    public static double mediaPonderada(ArrayList<Double> notas, ArrayList<Double> pesos){
+
+        double valor1 = 0d, valor2 = 0d;
+
+        for (int i = 0; i < notas.size(); i++) {
+            valor1 += notas.get(i) * pesos.get(i);
+        }
+
+        for (Double peso : pesos) {
+            valor2 += peso;
+        }
+        return valor1 / valor2;
     }
 }
